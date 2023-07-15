@@ -3,7 +3,7 @@ import tw from "tailwind-styled-components";
 export default function Home() {
   return (
     <Main className="">
-      <main></main>
+      <main>Todo</main>
     </Main>
   );
 }
