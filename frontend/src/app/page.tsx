@@ -1,13 +1,26 @@
-import tw from "tailwind-styled-components";
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  return (
-    <Main className="">
-      <main>Todo</main>
-    </Main>
-  );
-}
+  const requireAuth = () => {
+    const loggedIn = true;
+    // const router = useRouter;
 
-const Main = tw.main`
-flex min-h-screen flex-col items-center justify-between p-24
-`;
+    if (!loggedIn) {
+      window.location.href = "/login";
+      //   router.push("/login");
+    } else {
+      window.location.href = "/todo";
+
+      //   router.push("/todo");
+    }
+  };
+
+  useEffect(() => {
+    requireAuth();
+  }, []);
+
+  return <div></div>;
+}
