@@ -10,4 +10,4 @@ const dbConfig = {
     PORT: 27017,
     DB: process.env.ATLAS_URI || "",
 };
-module.exports = dbConfig;
+exports.default = dbConfig;

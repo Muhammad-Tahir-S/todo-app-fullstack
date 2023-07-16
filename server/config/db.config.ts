@@ -7,4 +7,4 @@ const dbConfig = {
   DB: process.env.ATLAS_URI || "",
 };
 
-module.exports = dbConfig;
+export default dbConfig;

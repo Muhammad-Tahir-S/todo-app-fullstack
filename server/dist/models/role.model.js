@@ -7,4 +7,4 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const Role = mongoose_1.default.model("Role", new mongoose_1.default.Schema({
     name: String,
 }));
-module.exports = Role;
+exports.default = Role;

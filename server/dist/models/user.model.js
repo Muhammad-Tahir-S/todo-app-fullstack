@@ -15,4 +15,4 @@ const User = mongoose_1.default.model("User", new mongoose_1.default.Schema({
         },
     ],
 }));
-module.exports = User;
+exports.default = User;
