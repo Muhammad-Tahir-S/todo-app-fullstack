@@ -44,7 +44,7 @@ function initial() {
                 name: "admin",
             })
                 .save()
-                .then((res) => console.log("added 'user' to roles collection", res))
+                .then((res) => console.log("added 'admin' to roles collection", res))
                 .catch((err) => console.log("error", err));
         }
     })
