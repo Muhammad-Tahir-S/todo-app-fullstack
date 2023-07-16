@@ -19,11 +19,11 @@ app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 const Role = models_1.default.role;
 models_1.default.mongoose
-    .connect(`mongodb+srv://todo:todo@todo-app.reldf6r.mongodb.net`, {
+    .connect(process.env.ATLAS_STRING || "", {
     dbName: "Todo-App",
 })
     .then(() => {
-    console.log("Successfully connect to MongoDB.");
+    console.log("Successfully connected to MongoDB.");
     initial();
 })
     .catch((err) => {
