@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 export default function Home() {
   const requireAuth = () => {
-    const loggedIn = true;
+    const loggedIn = false;
     // const router = useRouter;
 
     if (!loggedIn) {
