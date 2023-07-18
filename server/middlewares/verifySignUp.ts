@@ -4,42 +4,33 @@ import { Request, Response, NextFunction } from "express";
 const ROLES = db.ROLES;
 const User = db.user;
 
-const checkDuplicateUsernameOrEmail = (
+const checkDuplicateUsernameOrEmail = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  User.findOne({
-    username: req?.body?.username ,
-  })
-    .exec()
-    .then((_response) => {
+  try {
+    const useranameUser = await User.findOne({
+      username: req?.body?.username,
+    }).exec();
+
+    if (useranameUser) {
       res?.status(400).send({ message: "Failed! Username is already in use!" });
-
-      User.findOne({
-        email: req?.body?.email,
-      })
-        .exec()
-        .then((_response) => {
-          res
-            ?.status(400)
-            .send({ message: "Failed! Email is already in use!" });
-          next();
-
-          return;
-        })
-        .catch((err) => {
-          res.status(500).send({ message: err });
-          return;
-        });
-
-      next();
       return;
-    })
-    .catch((err) => {
-      res.status(500).send({ message: err });
+    }
+
+    const emailUser = await User.findOne({
+      email: req?.body?.email,
+    }).exec();
+    if (emailUser) {
+      res?.status(400).send({ message: "Failed! Email is already in use!" });
       return;
-    });
+    }
+  } catch (err) {
+    res.status(500).send({ message: err });
+    return;
+  }
+  next();
 };
 
 const checkRolesExisted = (req: Request, res: Response, next: NextFunction) => {

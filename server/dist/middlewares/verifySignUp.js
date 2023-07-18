@@ -6,35 +6,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const models_1 = __importDefault(require("../models"));
 const ROLES = models_1.default.ROLES;
 const User = models_1.default.user;
-const checkDuplicateUsernameOrEmail = (req, res, next) => {
-    User.findOne({
-        username: req?.body?.username,
-    })
-        .exec()
-        .then((_response) => {
-        res?.status(400).send({ message: "Failed! Username is already in use!" });
-        User.findOne({
+const checkDuplicateUsernameOrEmail = async (req, res, next) => {
+    try {
+        const useranameUser = await User.findOne({
+            username: req?.body?.username,
+        }).exec();
+        if (useranameUser) {
+            res?.status(400).send({ message: "Failed! Username is already in use!" });
+            return;
+        }
+        const emailUser = await User.findOne({
             email: req?.body?.email,
-        })
-            .exec()
-            .then((_response) => {
-            res
-                ?.status(400)
-                .send({ message: "Failed! Email is already in use!" });
-            next();
+        }).exec();
+        if (emailUser) {
+            res?.status(400).send({ message: "Failed! Email is already in use!" });
             return;
-        })
-            .catch((err) => {
-            res.status(500).send({ message: err });
-            return;
-        });
-        next();
-        return;
-    })
-        .catch((err) => {
+        }
+    }
+    catch (err) {
         res.status(500).send({ message: err });
         return;
-    });
+    }
+    next();
 };
 const checkRolesExisted = (req, res, next) => {
     if (req.body.roles) {

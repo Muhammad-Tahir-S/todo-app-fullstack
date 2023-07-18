@@ -34,26 +34,36 @@ db.mongoose
     process.exit();
   });
 
-function initial() {
-  Role.estimatedDocumentCount()
-    .then((res) => {
-      if (res === 0) {
-        new Role({
-          name: "user",
-        })
-          .save()
-          .then((res) => console.log("added 'user' to roles collection", res))
-          .catch((err) => console.log("error", err));
+async function initial() {
+  try {
+    const roleCount = await Role.estimatedDocumentCount();
 
-        new Role({
-          name: "admin",
-        })
-          .save()
-          .then((res) => console.log("added 'admin' to roles collection", res))
-          .catch((err) => console.log("error", err));
+    if (roleCount === 0) {
+      try {
+        const newRoleResponse = await new Role({
+          name: "user",
+        }).save();
+
+        console.log("added 'user' to roles collection", newRoleResponse);
+      } catch (err) {
+        console.log("error", err);
       }
-    })
-    .catch((err) => console.log("error estimating count", err));
+
+      try {
+        const newRoleResponse = await new Role({
+          name: "admin",
+        }).save();
+
+        console.log("added 'admin' to roles collection", newRoleResponse);
+      } catch (err) {
+        console.log("error", err);
+      }
+    }
+
+    console.log("roles exist", roleCount);
+  } catch (err) {
+    console.log("failed to get existing role count");
+  }
 }
 
 app.get("/", (req: Request, res: Response) => {
