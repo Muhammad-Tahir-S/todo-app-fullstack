@@ -1,8 +1,8 @@
 import tw from "tailwind-styled-components";
 import Link from "next/link";
-import username from "../images/username.png";
-import arrow from "../images/arrow.svg";
-import exclaim from "../images/exclaim.png";
+import username from "../../assets/username.png";
+import arrow from "../../assets/arrow.svg";
+import exclaim from "../../assets/exclaim.png";
 import Image from "next/image";
 export default function ForgotPassword() {
   return (
@@ -74,7 +74,7 @@ export default function ForgotPassword() {
                 <Image src={arrow} alt={""} width={15} className="mr-3" />
 
                 <Link
-                  href="/"
+                  href="/login"
                   id="google2"
                   // className="hero-btn-red "
                   // rel=""
