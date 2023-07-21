@@ -13,9 +13,7 @@ export default function LoginPage() {
         <Custom_div>
           <Custom_div_2>
             <Custom_div_3>
-              <Custom_h1>
-                You must sign in to join
-                </Custom_h1>
+              <Custom_h1>You must sign in to join</Custom_h1>
             </Custom_div_3>
             <Custom_div_3>
               <Custom_h1_2>We are a team that guides each other </Custom_h1_2>
@@ -43,42 +41,39 @@ export default function LoginPage() {
             </Custom_div_4>
 
             <form className="space-y-4 md:space-y-6" action="#">
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-400"
-                >
-                  Email or username
-                </label>
-                <div className=" flex  items-left    bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
-                  {/* <Image src={username} alt={""} width={15} className="mr-2" /> */}
+              <label
+                htmlFor="email"
+                className="block mb-2 text-sm font-medium text-gray-400"
+              >
+                Email or username
+              </label>
+              {/* <Image src={username} alt={""} width={15} className="mr-2" /> */}
+              <Custom_input style={{ marginTop: "-0.5em" }}>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Uname@mail.com"
+                  // className=" flex  items-left    bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                />
+              </Custom_input>
 
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="uname@mail.com"
-                  />
-                </div>
-              </div>
-              <div>
-                <label
-                  htmlFor="password"
-                  className="block mb-2 text-sm font-medium text-gray-400"
-                >
-                  Password
-                </label>
-                <div className=" flex  items-left bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5">
-                  {/* <Image src={password} alt={""} width={15} className="mr-2" /> */}
-
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="password"
-                  />
-                </div>
-              </div>
+              <label
+                htmlFor="password"
+                className="block mb-2 text-sm font-medium text-gray-400"
+              >
+                Password
+              </label>
+              {/* <Image src={password} alt={""} width={15} className="mr-2" /> */}
+              <Custom_input style={{ marginTop: "-0.1em" }}>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="password"
+                  // className=" flex  items-left    bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                />
+              </Custom_input>
               <div className=" flex items-center justify-end">
                 <Link
                   style={{ marginTop: "-1em" }}
@@ -95,12 +90,7 @@ export default function LoginPage() {
               >
                 Sign in with Google{" "}
               </Link>
-              {/* <button
-                type="submit"
-                className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-              >
-                Sign in
-              </button> */}
+            
               <Custom_div_3>
                 <Custom_p>
                   Don’t have an account?{" "}
@@ -121,7 +111,10 @@ export default function LoginPage() {
 }
 
 // const Forgot_password = tw.div`flex items-center justify-end"`;
-const Custom_p = tw.div`text-sm font-light text-gray-500"`;
+
+const Custom_p = tw.div`text-sm font-light text-gray-500`;
+// const Custom_Link = tw.link`flex  items-center  justify-center bg-blue-700  border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5`;
+const Custom_input = tw.div`flex  items-left   bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5`;
 const Custom_span = tw.div`flex-shrink mx-4 text-gray-400`;
 const Custom_h1_2 = tw.div`text-sm  leading-tight tracking-tight text-gray-400`;
 const Custom_h1 = tw.div`text-xl  leading-tight tracking-tight text-gray-900`;
