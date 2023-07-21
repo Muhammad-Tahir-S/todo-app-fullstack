@@ -7,21 +7,20 @@ import Image from "next/image";
 export default function ForgotPassword() {
   return (
     <div>
-      {/* <section className="bg-gray-50 dark:bg-gray-900"> */}
-      <div className="flex items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <div className="flex  items-center  justify-center ">
-              <h1 className="text-xl  leading-tight tracking-tight text-gray-900 ">
+      <Root2>
+      <Custom_div>
+      <Custom_div_2>
+      <Custom_div_3>
+      <Custom_h1>
                 Forgot Password ?{" "}
-              </h1>
-            </div>
+                </Custom_h1>
+              </Custom_div_3>
 
-            <div className="flex  items-center  justify-center ">
-              <h1 className="text-sm leading-tight tracking-tight text-gray-400 ">
+              <Custom_div_3>
+              <Custom_h1_2>
                 No worries, we will send you reset instructions{" "}
-              </h1>
-            </div>
+                </Custom_h1_2>
+              </Custom_div_3>
 
             <form className="space-y-4 md:space-y-6" action="#">
               <div>
@@ -64,9 +63,7 @@ export default function ForgotPassword() {
                 href="/"
                 id="google2"
                 className="flex  items-center  justify-center bg-blue-700  border border-gray-300 text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                // className="hero-btn-red "
-                // rel=""
-                // target=""
+              
               >
                 Reset password{" "}
               </Link>
@@ -76,9 +73,7 @@ export default function ForgotPassword() {
                 <Link
                   href="/login"
                   id="google2"
-                  // className="hero-btn-red "
-                  // rel=""
-                  // target=""
+                 
                 >
                   Back to Login{" "}
                 </Link>
@@ -90,8 +85,8 @@ export default function ForgotPassword() {
               >
                 Sign in
               </button> */}
-              <div className="flex  items-center  justify-center ">
-                <p className="text-sm font-light text-gray-500">
+              <Custom_div_3>
+              <Custom_p>
                   Don’t have an account yet?{" "}
                   <a
                     href="#"
@@ -99,16 +94,25 @@ export default function ForgotPassword() {
                   >
                     Sign up
                   </a>
-                </p>
-              </div>
+                  </Custom_p>
+                </Custom_div_3>
             </form>
-          </div>
-        </div>
-      </div>
-      {/* </section> */}
+            </Custom_div_2>
+          </Custom_div>
+        </Root2>
     </div>
   );
 }
-//   const Root = tw.div`
-// bg-black min-h-screen
-// `;
+const Custom_p = tw.div`text-sm font-light text-gray-500"`;
+
+const Custom_h1_2 = tw.div`text-sm  leading-tight tracking-tight text-gray-400`;
+const Custom_h1 = tw.div`text-xl  leading-tight tracking-tight text-gray-900`;
+
+const Custom_div_3 = tw.div`flex  items-center  justify-center`;
+
+const Custom_div_2 = tw.div`p-6 space-y-4 md:space-y-6 sm:p-8`;
+
+const Custom_div = tw.div` w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0`;
+
+const Root2 = tw.div`flex items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0`;
+

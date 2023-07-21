@@ -13,7 +13,9 @@ export default function LoginPage() {
         <Custom_div>
           <Custom_div_2>
             <Custom_div_3>
-              <Custom_h1>You must sign in to join</Custom_h1>
+              <Custom_h1>
+                You must sign in to join
+                </Custom_h1>
             </Custom_div_3>
             <Custom_div_3>
               <Custom_h1_2>We are a team that guides each other </Custom_h1_2>
