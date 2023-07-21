@@ -29,10 +29,9 @@ export default function ForgotPassword() {
                   Enter your email
                 </label>
 
-                <div
-                 className=" flex  items-left    bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                 >
-                  <Image src={username} alt={""} width={15} className="mr-2" />
+                <Custom_input style={{ marginTop: "-0.5em" }}>
+                
+                  {/* <Image src={username} alt={""} width={15} className="mr-2" /> */}
 
                   <input
                     type="email"
@@ -40,7 +39,7 @@ export default function ForgotPassword() {
                     id="email"
                     placeholder="uname@mail.com"
                   />
-                </div>
+              </Custom_input>
               </div>
 
               <div
@@ -99,7 +98,7 @@ export default function ForgotPassword() {
     </div>
   );
 }
-// const Custom_input = tw.div`flex  items-left    bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5`;
+ const Custom_input = tw.div`flex  items-left    bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5`;
 
 const Custom_p = tw.div`text-sm font-light text-gray-500"`;
 
