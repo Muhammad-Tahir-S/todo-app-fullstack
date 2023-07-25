@@ -2,10 +2,14 @@ import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import db from "./models";
 import cors from "cors";
+import { AuthRoutes } from "./routes/auth.routes";
+import { UserRoutes } from "./routes/user.routes";
 
 dotenv.config();
 
 const app = express();
+
+export type ExpressApp = typeof app;
 
 var corsOptions = {
   origin: "http://localhost:8081",
@@ -69,6 +73,9 @@ async function initial() {
 app.get("/", (req: Request, res: Response) => {
   res.json({ message: "Welcome to todo application." });
 });
+
+AuthRoutes(app);
+UserRoutes(app);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

@@ -7,6 +7,8 @@ const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const models_1 = __importDefault(require("./models"));
 const cors_1 = __importDefault(require("cors"));
+const auth_routes_1 = require("./routes/auth.routes");
+const user_routes_1 = require("./routes/user.routes");
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 var corsOptions = {
@@ -62,6 +64,8 @@ async function initial() {
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to todo application." });
 });
+(0, auth_routes_1.AuthRoutes)(app);
+(0, user_routes_1.UserRoutes)(app);
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);

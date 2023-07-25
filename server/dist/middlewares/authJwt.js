@@ -47,27 +47,32 @@ const isAdmin = async (req, res, next) => {
         return;
     }
 };
-const isModerator = async (req, res, next) => {
-    try {
-        const user = await User.findById(req.body.userId).exec();
-        if (user) {
-            const roles = await Role.find({
-                _id: { $in: user.roles },
-            });
-            if (roles) {
-                for (let i = 0; i < roles.length; i++) {
-                    if (roles[i].name === "moderator") {
-                        next();
-                        return;
-                    }
-                }
-            }
-            res.status(403).send({ message: "Require Admin Role!" });
-            return;
-        }
-    }
-    catch (err) {
-        res.status(500).send({ message: err });
-        return;
-    }
+// const isModerator = async (req: Request, res: Response, next: NextFunction) => {
+//   try {
+//     const user = await User.findById(req.body.userId).exec();
+//     if (user) {
+//       const roles = await Role.find({
+//         _id: { $in: user.roles },
+//       });
+//       if (roles) {
+//         for (let i = 0; i < roles.length; i++) {
+//           if (roles[i].name === "moderator") {
+//             next();
+//             return;
+//           }
+//         }
+//       }
+//       res.status(403).send({ message: "Require Admin Role!" });
+//       return;
+//     }
+//   } catch (err) {
+//     res.status(500).send({ message: err });
+//     return;
+//   }
+// };
+const authJwt = {
+    verifyToken,
+    isAdmin,
+    // isModerator,
 };
+exports.default = authJwt;

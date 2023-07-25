@@ -7,7 +7,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const User = mongoose_1.default.model("User", new mongoose_1.default.Schema({
     username: String,
     email: String,
-    password: String,
+    password: { type: String, required: true },
     roles: [
         {
             type: mongoose_1.default.Schema.Types.ObjectId,
