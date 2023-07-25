@@ -7,7 +7,7 @@ exports.UserRoutes = void 0;
 const user_controller_1 = require("../controllers/user.controller");
 const authJwt_1 = __importDefault(require("../middlewares/authJwt"));
 function UserRoutes(app) {
-    app.use((req, res, next) => {
+    app.use((_req, res, next) => {
         res.header("Access-Control-Allow-Headers", "x-access-token, Origin, Content-Type, Accept");
         next();
     });

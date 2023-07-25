@@ -7,7 +7,7 @@ import {
 import authJwt from "../middlewares/authJwt";
 
 export function UserRoutes(app: ExpressApp) {
-  app.use((req, res, next) => {
+  app.use((_req, res, next) => {
     res.header(
       "Access-Control-Allow-Headers",
       "x-access-token, Origin, Content-Type, Accept"
