@@ -1,4 +1,4 @@
-import { ExpressApp } from "../server";
+import { ExpressApp } from "..";
 import verifySignUp from "../middlewares/verifySignUp";
 import { signin, signup } from "../controllers/auth.controller";
 

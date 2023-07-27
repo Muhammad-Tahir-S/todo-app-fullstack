@@ -1,4 +1,4 @@
-import { ExpressApp } from "../server";
+import { ExpressApp } from "..";
 import {
   adminBoard,
   allAccess,
