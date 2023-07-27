@@ -35,7 +35,7 @@ export default function LoginPage() {
           >
             <Image src={apple} alt={""} width={27} height={27} />
             <Text variant="H4" color="text-gray-700">
-              Sign in with Google
+              Sign in with Apple
             </Text>
           </ThirdPartySignInLink>
         </div>
