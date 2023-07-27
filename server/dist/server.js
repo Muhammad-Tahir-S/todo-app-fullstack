@@ -20,7 +20,7 @@ app.use((0, cors_1.default)(corsOptions));
 app.use(express_1.default.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express_1.default.urlencoded({ extended: true }));
-app.get("/", (res) => {
+app.get("/", (req, res) => {
     res.json({ message: "Welcome to todo application." });
 });
 (0, auth_routes_1.AuthRoutes)(app);

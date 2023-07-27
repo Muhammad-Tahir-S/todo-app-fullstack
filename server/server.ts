@@ -16,7 +16,6 @@ var corsOptions = {
 };
 
 mongooseConnect();
-const router = express.Router();
 
 app.use(cors(corsOptions));
 // parse requests of content-type - application/json
@@ -24,7 +23,7 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-router.get("/", (res: Response) => {
+app.get("/", (req: Request, res: Response) => {
   res.json({ message: "Welcome to todo application." });
 });
 
