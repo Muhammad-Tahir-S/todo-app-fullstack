@@ -6,5 +6,4 @@
   from = "/api/*"
   status = 200
   to = "/.netlify/functions/api/:splat"
-[build.command] 
   command = "pnpm run build"
