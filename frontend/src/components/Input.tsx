@@ -20,7 +20,7 @@ const Input = forwardRef<HTMLInputElement, HTMLProps<HTMLInputElement>>(
 );
 
 const StyledInput = tw.input`px-2 py-1.5 h-9  mt-1 w-full rounded-md text-sm shadow-sm cursor-pointer border border-gray-400 placeholder-slate-400
- hover:border-blue-400 outline-none focus:border-blue-800 invalid:border-red-600`;
+ hover:border-blue-800 outline-none focus:border-blue-800 invalid:border-red-600`;
 
 Input.displayName = "Input";
 
