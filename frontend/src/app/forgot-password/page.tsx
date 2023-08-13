@@ -1,10 +1,10 @@
-import tw from "tailwind-styled-components";
-import LoginPage from "./loginPage";
+import tw from 'tailwind-styled-components';
+import ForgotPassword from './forgotPassword';
 
 export default function Login() {
   return (
     <Root>
-      <LoginPage />
+      <ForgotPassword/>
     </Root>
   );
 }
