@@ -1,3 +1,4 @@
+import { AuthProvider } from "@/utils/hooks/useAuth";
 import "./globals.css";
 export const metadata = {
   title: "Next.js",
@@ -11,7 +12,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
   );
 }

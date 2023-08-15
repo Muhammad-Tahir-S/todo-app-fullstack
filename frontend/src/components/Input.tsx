@@ -2,18 +2,18 @@ import { HTMLProps, forwardRef } from "react";
 import tw from "tailwind-styled-components";
 
 const Input = forwardRef<HTMLInputElement, HTMLProps<HTMLInputElement>>(
-  (props, ref) => {
+  ({ id, label, ...restProps}, ref) => {
     return (
       <div>
-        {props.label && (
+        {label && (
           <label
-            htmlFor={props.id}
+            htmlFor={id}
             className="text-gray-400 font-medium text-[14px]"
           >
-            {props.label}
+            {label}
           </label>
         )}
-        <StyledInput ref={ref} />
+        <StyledInput ref={ref} {...restProps} />
       </div>
     );
   }
