@@ -1,3 +1,4 @@
+"use client";
 import tw from "tailwind-styled-components";
 import LoginPage from "./loginPage";
 
