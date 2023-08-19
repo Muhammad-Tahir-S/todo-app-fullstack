@@ -58,8 +58,7 @@ export default function LoginPage() {
 
         <div className="w-full flex flex-col gap-3 mt-6">
           <LinkButton href="/sign-up" variant="secondary" size="large">
-            <Image src={google} alt={""} width={27} height={24} />
-            Sign in with Google
+            New user? Sign Up!
           </LinkButton>
         </div>
 
