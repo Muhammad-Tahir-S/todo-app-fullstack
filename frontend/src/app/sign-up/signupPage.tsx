@@ -1,7 +1,7 @@
 "use client";
 import tw from "tailwind-styled-components";
-import google from "@/assets/google.png";
-import apple from "@/assets/apple.png";
+
+import arrow from "../../assets/arrow.svg";
 
 import Image from "next/image";
 import Input from "@/components/Input";
@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 
-export default function LoginPage() {
+export default function SignupPage() {
   const [submitting, setSubmitting] = useState(false);
   const { user, signin } = useAuth();
   const router = useRouter();
@@ -47,34 +47,14 @@ export default function LoginPage() {
   return (
     <Root>
       <WhiteBg>
-        <div className="flex flex-col items-center justify-center">
-          <Text variant="H3" color="text-gray-600">
-            You must Sign In to join
-          </Text>
-          <Text variant="H5" color="text-gray-400">
-            We&apos;re a team that guides each other
-          </Text>
-        </div>
-
-        <div className="w-full flex flex-col gap-3 mt-6">
-          <LinkButton href="/sign-up" variant="secondary" size="large">
-            <Image src={google} alt={""} width={27} height={24} />
-            Sign in with Google
-          </LinkButton>
-        </div>
-
-        <div className="relative mt-4">
-          <TextBetweenLines variant="p1" color="text-gray-400">
-            Or
-          </TextBetweenLines>
-        </div>
-
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-2 w-full">
           <Input
             {...register("username")}
             placeholder="Username"
             label="Username"
           />
+
+          <Input {...register("username")} placeholder="Email" label="Email" />
 
           <Input
             // type="password"
@@ -83,14 +63,15 @@ export default function LoginPage() {
             label="Password"
           />
 
-          <LinkButton
-            href="/forgot-password"
-            variant="secondary"
-            noBorder
-            className="float-right"
-          >
-            Forgot password?
+          <br />
+          <br />
+
+          <LinkButton href="/login" size="large" variant="secondary">
+            <Image src={arrow} alt={""} width={15} />
+            Back to Login
           </LinkButton>
+
+          <br />
 
           <Button
             type="submit"
@@ -99,7 +80,7 @@ export default function LoginPage() {
             className="mt-6"
             loading={submitting}
           >
-            Sign In
+            Sign up
           </Button>
         </form>
       </WhiteBg>
