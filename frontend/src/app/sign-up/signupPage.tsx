@@ -8,28 +8,28 @@ import Input from "@/components/Input";
 import Text from "@/components/Text";
 import Button from "@/components/Button/Button";
 import LinkButton from "@/components/Button/LinkButton";
-import useAuth, { SignInFormValues, User } from "@/utils/hooks/useAuth";
+import useAuth, { SignUpFormValues, User } from "@/utils/hooks/useAuth";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 
 export default function SignupPage() {
   const [submitting, setSubmitting] = useState(false);
-  const { user, signin } = useAuth();
+  const { user, signup } = useAuth();
   const router = useRouter();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignInFormValues>({
-    defaultValues: { username: "", password: "" },
+  } = useForm<SignUpFormValues>({
+    defaultValues: { username: "", password: "", email: "" },
   });
 
-  async function onSubmit(values: SignInFormValues) {
+  async function onSubmit(values: SignUpFormValues) {
     try {
       setSubmitting(true);
-      await signin(values);
+      await signup(values);
 
       setSubmitting(false);
     } catch (error) {
@@ -54,7 +54,7 @@ export default function SignupPage() {
             label="Username"
           />
 
-          <Input {...register("username")} placeholder="Email" label="Email" />
+          <Input {...register("email")} placeholder="Email" label="Email" />
 
           <Input
             // type="password"
