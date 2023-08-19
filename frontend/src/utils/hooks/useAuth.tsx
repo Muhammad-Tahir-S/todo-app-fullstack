@@ -14,6 +14,7 @@ export interface ForgotPasswordFormValues {
 export interface SignUpFormValues {
   email: string;
   password: string;
+  username: string;
 }
 
 export interface User {
@@ -44,6 +45,15 @@ function useProvideAuth() {
     }
   }
 
+  async function signup(values: SignUpFormValues) {
+    try {
+      const res = await axios.post(`${baseUrl}/api/auth/signup`, values);
+      setUser(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   function signout() {
     setUser(null);
   }
@@ -53,6 +63,7 @@ function useProvideAuth() {
     ready: true,
     signin,
     signout,
+    signup,
   };
 }
 
